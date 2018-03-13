@@ -1,0 +1,34 @@
+cell Struct Word
+{	
+	string description;
+}
+
+struct GetRequest
+{
+    long word_id;
+}
+
+protocol Get
+{
+    type:HTTP;
+    request:GetRequest;
+    response:Word;
+}
+
+struct CreateRequest 
+{
+	string word;	
+}
+
+protocol Create
+{
+	type:HTTP;
+	request:CreateRequest;
+	response:Word;
+}
+
+server WordsStore
+{
+    protocol Get;
+	protocol Create;
+}
